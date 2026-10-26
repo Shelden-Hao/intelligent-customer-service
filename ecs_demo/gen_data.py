@@ -1,4 +1,5 @@
 from actions.db_table_class import *
+import os
 import random
 from uuid import uuid4
 from faker import Faker
@@ -7,11 +8,12 @@ from sqlalchemy import create_engine, or_
 from sqlalchemy.orm import Session, joinedload
 
 # 创建数据库引擎
-db_host = "localhost"
-db_port = 3306
-db_name = "ecs"
-db_user_name = "root"
-db_password = "123321"
+# 优先读环境变量，未设置时回退到原默认值 —— 换机器/换容器不用改源码
+db_host = os.environ.get("ECS_DB_HOST", "localhost")
+db_port = int(os.environ.get("ECS_DB_PORT", "3306"))
+db_name = os.environ.get("ECS_DB_NAME", "ecs")
+db_user_name = os.environ.get("ECS_DB_USER", "root")
+db_password = os.environ.get("ECS_DB_PASSWORD", "123321")
 url = f"mysql+pymysql://{db_user_name}:{db_password}@{db_host}:{db_port}/{db_name}?charset=utf8"
 engine = create_engine(url)
 
