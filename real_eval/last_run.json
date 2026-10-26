@@ -1,0 +1,44 @@
+[
+  {
+    "task_id": "R01-取消待发货订单#t1",
+    "success": false,
+    "fail_reason": "该调用 action_cancel_order 却没有调用：待发货订单客户有权取消，正确行为是直接取消",
+    "wall_ms": 3717
+  },
+  {
+    "task_id": "R02-取消已发货订单#t1",
+    "success": true,
+    "fail_reason": null,
+    "wall_ms": 1470
+  },
+  {
+    "task_id": "R03-多轮查物流（首轮无单号）#t1",
+    "success": true,
+    "fail_reason": null,
+    "wall_ms": 5595
+  },
+  {
+    "task_id": "R03-多轮查物流（首轮无单号）#t2",
+    "success": true,
+    "fail_reason": null,
+    "wall_ms": 2770
+  },
+  {
+    "task_id": "R04-售后中重复申请退货#t1",
+    "success": true,
+    "fail_reason": null,
+    "wall_ms": 2321
+  },
+  {
+    "task_id": "R05-查已完成订单详情#t1",
+    "success": false,
+    "fail_reason": "该调用 action_get_order_detail 却没有调用：查详情是最常规的正向能力，应正常调用",
+    "wall_ms": 2108
+  },
+  {
+    "task_id": "R06-修改收货信息#t1",
+    "success": true,
+    "fail_reason": null,
+    "wall_ms": 5287
+  }
+]

@@ -1,0 +1,148 @@
+[
+  {
+    "task_id": "R01-取消待发货订单#t1",
+    "model": "glm-5.3-flash",
+    "success": false,
+    "kind": "unknown",
+    "kind_label": "未归类",
+    "confidence": 0.0,
+    "steps": 2,
+    "evidence": [
+      "现有规则未能定性；运行器记录的失败原因：该调用 action_cancel_order 却没有调用：待发货订单客户有权取消，正确行为是直接取消"
+    ],
+    "minimal_steps": 0,
+    "score": 1.0,
+    "fail_reason": "该调用 action_cancel_order 却没有调用：待发货订单客户有权取消，正确行为是直接取消",
+    "tools": [
+      "utter_ask_order_id",
+      "action_ask_order_id"
+    ]
+  },
+  {
+    "task_id": "R02-取消已发货订单#t1",
+    "model": "glm-5.3-flash",
+    "success": true,
+    "kind": "unknown",
+    "kind_label": "未归类",
+    "confidence": 1.0,
+    "steps": 3,
+    "evidence": [
+      "该轨迹执行成功，未做归因"
+    ],
+    "minimal_steps": null,
+    "score": 1.0,
+    "fail_reason": null,
+    "tools": [
+      "utter_ask_order_id",
+      "action_ask_order_id",
+      "action_ask_order_id"
+    ]
+  },
+  {
+    "task_id": "R03-多轮查物流（首轮无单号）#t1",
+    "model": "glm-5.3-flash",
+    "success": true,
+    "kind": "unknown",
+    "kind_label": "未归类",
+    "confidence": 1.0,
+    "steps": 4,
+    "evidence": [
+      "该轨迹执行成功，未做归因"
+    ],
+    "minimal_steps": null,
+    "score": 0.67,
+    "fail_reason": null,
+    "tools": [
+      "utter_ask_order_id",
+      "action_ask_order_id",
+      "action_ask_order_id",
+      "action_ask_order_id"
+    ]
+  },
+  {
+    "task_id": "R03-多轮查物流（首轮无单号）#t2",
+    "model": "glm-5.3-flash",
+    "success": true,
+    "kind": "unknown",
+    "kind_label": "未归类",
+    "confidence": 1.0,
+    "steps": 3,
+    "evidence": [
+      "该轨迹执行成功，未做归因"
+    ],
+    "minimal_steps": null,
+    "score": 1.0,
+    "fail_reason": null,
+    "tools": [
+      "action_get_logistics_info",
+      "action_flow_completed",
+      "action_send_text"
+    ]
+  },
+  {
+    "task_id": "R04-售后中重复申请退货#t1",
+    "model": "glm-5.3-flash",
+    "success": true,
+    "kind": "unknown",
+    "kind_label": "未归类",
+    "confidence": 1.0,
+    "steps": 6,
+    "evidence": [
+      "该轨迹执行成功，未做归因"
+    ],
+    "minimal_steps": null,
+    "score": 0.12,
+    "fail_reason": null,
+    "tools": [
+      "action_ask_order_id",
+      "action_ask_order_id",
+      "action_ask_order_id",
+      "action_ask_order_id",
+      "utter_ask_postsale_order_id",
+      "action_ask_postsale_order_id"
+    ]
+  },
+  {
+    "task_id": "R05-查已完成订单详情#t1",
+    "model": "glm-5.3-flash",
+    "success": false,
+    "kind": "loop",
+    "kind_label": "原地绕圈",
+    "confidence": 0.9,
+    "steps": 6,
+    "evidence": [
+      "连续 3 次以完全相同的参数调用 action_ask_order_id，没有引入任何新信息"
+    ],
+    "minimal_steps": 1,
+    "score": 0.67,
+    "fail_reason": "该调用 action_get_order_detail 却没有调用：查详情是最常规的正向能力，应正常调用",
+    "tools": [
+      "utter_ask_order_id",
+      "action_ask_order_id",
+      "action_ask_order_id",
+      "action_ask_order_id",
+      "action_ask_order_id",
+      "action_ask_order_id"
+    ]
+  },
+  {
+    "task_id": "R06-修改收货信息#t1",
+    "model": "glm-5.3-flash",
+    "success": true,
+    "kind": "unknown",
+    "kind_label": "未归类",
+    "confidence": 1.0,
+    "steps": 3,
+    "evidence": [
+      "该轨迹执行成功，未做归因"
+    ],
+    "minimal_steps": null,
+    "score": 1.0,
+    "fail_reason": null,
+    "tools": [
+      "action_get_order_detail",
+      "utter_ask_receive_id",
+      "action_ask_receive_id"
+    ]
+  }
+]
